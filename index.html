@@ -5127,9 +5127,23 @@ $(".nav-toggle").on("click", function() {
 $(".nav-item-link").on("click", function() {
 	var item = $(".nav-item");
 	var layer = $(this).next(".nav-mobile-layer");
+	var imageItem = $(".nav-mobile-image-item");
 	
 	item.addClass("flyout");
+	imageItem.addClass("flyin");
+	layer.addClass("visible");
 	layer.show();
+});
+
+$(".nav-back").on("click", function() {
+	var item = $(".nav-item");
+	var layer = $(this).next(".nav-mobile-layer");
+	var imageItem = $(".nav-mobile-image-item");
+	
+	item.removeClass("flyout");
+	imageItem.removeClass("flyin");
+	layer.removeClass("visible");
+	layer.hide();
 });
 
 </script>
