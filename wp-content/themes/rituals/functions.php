@@ -1,5 +1,24 @@
 <?php
 
+function rituals_theme_support() {
+    add_theme_support('title-tag');
+    add_theme_support('custom-logo');
+}
+
+add_action('after_setup_theme', 'rituals_theme_support');
+
+function rituals_menus() {
+    $locations = array(
+        'pre_header' => "Pre Header Menu",  
+        'main_header' => "Header Main Navigation Menu",  
+        'footer' => "Footer Menu"
+    );
+
+    register_nav_menus($locations);
+}
+
+add_action('init', 'rituals_menus');
+
 function rituals_register_styles() {
     $version = wp_get_theme()->get('Version');
 
