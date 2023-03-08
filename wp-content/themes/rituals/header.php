@@ -34,7 +34,12 @@
 			<nav class="navigation-inner">
 				<div class="inner-wrapper nav-inner-wrapper">
 					<a href="https://www.rituals.com/en-gb/home" class="header-logo" tabindex="-1">
-						<svg version="1.1" id="header-logo" viewBox="0 0 1014.9 100">
+						<?php if(function_exists('the_custom_logo')) {
+							$custom_logo_id = get_theme_mod('custom_logo');
+							$logo = wp_get_attachment_image_src($custom_logo_id);
+						} ?>
+						<img src="<?php echo $logo[0]; ?>" alt="">
+						<!-- <svg version="1.1" id="header-logo" viewBox="0 0 1014.9 100">
 							<g>
 								<path class="st0" d="M87.2,32.7c0-18.7-12.6-32.5-33-32.5H10.6V49H0v16.6h10.6v30 h16.7v-30H48l19.2,30h21.4l-22.9-34C78.1,57.5,87.2,46.9,87.2,32.7L87.2,32.7z M27.9,48.9v-32h25.4c12.1,0,17.2,7.6,17.2,15.8 c0,8.6-5.6,16.3-17.2,16.3L27.9,48.9L27.9,48.9z"></path>
 								<path class="st0" d="M132,95.9h16.7V0.5H132V95.9z"></path>
@@ -47,7 +52,7 @@
 								<path class="st0" d="M917.4,66.7c-8.1,0-14.8,6.6-14.8,15.3 c0,8.1,6.6,15.3,14.8,15.3c8.1,0,14.8-6.6,14.8-15.3S925.5,66.7,917.4,66.7z"></path>
 								<path class="st0" d="M1000.2,66.7c-8.1,0-14.8,6.6-14.8,15.3 c0,8.1,6.6,15.3,14.8,15.3c8.1,0,14.8-6.6,14.8-15.3S1008.3,66.7,1000.2,66.7z"></path>
 							</g>
-						</svg>
+						</svg> -->
 					</a>
 					<div class="nav-mobile">
 						<div class="nav-mobile-inner">
@@ -4239,7 +4244,7 @@
 									</svg>
 								</button>
 								<label class="sr-only" for="headerSearch">I'm looking for...</label>
-								<input id="headerSearch" class="search-input">
+								<input id="headerSearch" class="search-input" type="text" name="q" value="" placeholder="I'm looking for..." autocomplete="off" >
 								<button type="button" class="icon-close search-icon-close">Close search</span></button>
 								<button type="button" class="icon-close search-clear">Clear text from input</span></button>
 								<input type="hidden" name="lang" value="en_GB">
